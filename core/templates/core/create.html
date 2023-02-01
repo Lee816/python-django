@@ -2,14 +2,14 @@
 
 {% block content %}
 
-    <div id="contentbox">
-        <div id="content">
+    <div id="contentbox3">
+        <div id="content3">
             <form method="POST">
                 {% csrf_token %}
                 <label >Title : {{ form.title }}</label>
                 <label >Important : {{ form.important }}</label>
                 <label >Description : {{ form.description }}</label>
-                <input class="btn" type="submit">
+                <input class="btn2" type="submit">
             </form>
         </div>
     </div>

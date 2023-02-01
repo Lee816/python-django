@@ -60,3 +60,48 @@ a{
     text-decoration: line-through;
     text-decoration-style: double;
 }
+
+/* detail */
+#contentbox2{
+    width: 80vw;
+    border: 2px lightgray solid;
+    border-radius: 15px;
+    margin: 20px auto;
+    font-size: 1.5rem;
+    padding-top: 20px;
+}
+#content2{
+    margin: 0 20px;
+}
+#content2 > h2{
+    border-bottom: 1px lightgray solid;
+    padding-bottom: 10px;
+}
+#content2 > p{
+    margin: 20px;
+    line-height: 2rem;
+}
+
+/* create */
+#contentbox3{
+    width: 80vw;
+    border: 2px lightgray solid;
+    border-radius: 15px;
+    margin: 20px auto;
+    font-size: 1.5rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#content3{
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.btn2{
+    width: 40px;
+    margin-top: 10px;
+}
