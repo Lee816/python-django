@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="ko">
-{% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/7d25faa43e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'core/detail.css' %}">
-    <title>Todo App</title>
-</head>
-<body>
-    <div id="mainbox">
-        <p class="titlebox"><a href="/">Todo Detail</a><span id="changebtn" value="light" onclick="dark_or_light(this)"> .</span></p>
-        <div id="createbox">
-            <a href="{% url 'create' %}"><i class="fa-solid fa-plus"></i></a>
-        </div>
-        <div id="contentbox">
-            <div id="content">
-                <h2>{{ todo.title }}
-                    {% if todo.important %}
-                    <i class="fa-solid fa-exclamation"></i>
-                    {% endif %}
-                </h2>
-                <p>{{ todo.description }}</p>
-            </div>
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+    <div id="contentbox">
+        <div id="content">
+            <h2>{{ todo.title }}
+                {% if todo.important %}
+                <i class="fa-solid fa-exclamation"></i>
+                {% endif %}
+            </h2>
+            <p>{{ todo.description }}</p>
         </div>
     </div>
-    <script src="{% static 'core/index.js' %}"></script>
-</body>
-</html>
+
+{% endblock %}
