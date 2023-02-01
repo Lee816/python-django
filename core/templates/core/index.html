@@ -1,11 +1,38 @@
-{% extends 'core/base.html' %}
-
-{% block content %}
-	
-	<div>
-		<h3 class="info">
-			A Django project created with <a href="https://github.com/beingbiplov/django-boilerplate">django-boilerplate</a>
-		</h3>
-	</div>
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7d25faa43e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'core/index.css' %}">
+    <title>Todo App</title>
+</head>
+<body>
+    <div id="mainbox">
+        <p class="titlebox"><a href="/">Todo List</a><span id="changebtn" value="light" onclick="dark_or_light(this)"> .</span></p>
+        <div id="createbox">
+            <a href="{% url 'create' %}"><i class="fa-solid fa-plus"></i></a>
+        </div>
+        {% for todo in todos %}
+        <div id="contentbox">
+            <p id="content_title">
+                {% if todo.done %}
+                <a href="{{todo.pk}}" class="done">{{todo.title}}</a>
+                {% else %}
+                <a href="{{todo.pk}}">{{todo.title}}</a>
+                {% endif%}
+                {% if todo.important %}
+                <i class="fa-solid fa-exclamation"></i>
+                {% endif %}
+            </p>
+            <div class="btn"><a href="{{todo.pk}}/update"><i class="fa-solid fa-pen-to-square"></i></a></div>
+            <div class="btn"><a href="{{todo.pk}}/done"><i class="fa-solid fa-square-check"></i></a></div>
+            <div class="btn"><a href="{{todo.pk}}/delete"><i class="fa-solid fa-trash"></i></a></div>
+        </div>
+        {% endfor %}
+    </div>
+    <script src="{% static 'core/index.js' %}"></script>
+</body>
+</html>

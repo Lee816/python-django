@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7d25faa43e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'core/create.css' %}">
+    <title>Todo App</title>
+</head>
+<body>
+    <div id="mainbox">
+        <p class="titlebox"><a href="/">Todo Create</a><span id="changebtn" value="light" onclick="dark_or_light(this)"> .</span></p>
+        <div id="createbox">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+        <div id="contentbox">
+            <div id="content">
+                <form method="POST">
+                    {% csrf_token %}
+                    <label >Title : {{ form.title }}</label>
+                    <label >Important : {{ form.important }}</label>
+                    <label >Description : {{ form.description }}</label>
+                    <input class="btn" type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'core/index.js' %}"></script>
+</body>
+</html>
